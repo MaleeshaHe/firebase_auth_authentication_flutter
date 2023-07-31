@@ -9,7 +9,7 @@ const TextStyle descriptionStyle = TextStyle(
 );
 
 const textInputDecoration = InputDecoration(
-  hintText: "email",
+  hintText: "Email",
   hintStyle: TextStyle(color: textLight, fontSize: 15),
   fillColor: bgBlack,
   filled: true,
