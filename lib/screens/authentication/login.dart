@@ -12,6 +12,11 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   //Ref for the AuthServices Class
+
+  final _formKey = GlobalKey<FormState>();
+
+  String email = "";
+  String password = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,16 +25,85 @@ class _SignInState extends State<SignIn> {
         backgroundColor: bgBlack,
         title: const Text("SIGN IN"),
       ),
-      body: Padding(
-        padding: EdgeInsets.only(left: 15.0, right: 10),
-        child: Column(
-          children: [
-            Text(
-              description,
-              style: descriptionStyle,
-            ),
-            Image.asset("assets/images/man.png"),
-          ],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.only(left: 15.0, right: 10),
+          child: Column(
+            children: [
+              const Text(
+                description,
+                style: descriptionStyle,
+              ),
+              Center(
+                child: Image.asset(
+                  "assets/images/man.png",
+                  height: 200,
+                ),
+              ),
+              Form(
+                key: _formKey,
+                child: Column(
+                  children: [
+                    TextFormField(
+                      validator: (value) =>
+                          value?.isEmpty == true ? "Enter a valid email" : null,
+                      onChanged: (value) {
+                        setState(() {
+                          email = value;
+                        });
+                      },
+                    ),
+                    TextFormField(
+                      validator: (value) =>
+                          value!.length < 6 ? "Enter a valid password" : null,
+                      onChanged: (value) {
+                        setState(() {
+                          password = value;
+                        });
+                      },
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    const Text(
+                      "Login with social accounts",
+                      style: descriptionStyle,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Center(
+                      child: Image.asset(
+                        "assets/images/google.png",
+                        height: 50,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Do not have an account ? ",
+                          style: descriptionStyle,
+                        ),
+                        GestureDetector(
+                          child: const Text(
+                            "REGISTOR",
+                            style: TextStyle(
+                              color: mainBlue,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
         ),
       ),
     );
