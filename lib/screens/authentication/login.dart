@@ -1,6 +1,7 @@
 import 'package:firebase_auth_authentication_flutter/constants/colors.dart';
 import 'package:firebase_auth_authentication_flutter/constants/description.dart';
 import 'package:firebase_auth_authentication_flutter/constants/styles.dart';
+import 'package:firebase_auth_authentication_flutter/services/auth.dart';
 import 'package:flutter/material.dart';
 
 class SignIn extends StatefulWidget {
@@ -12,6 +13,7 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   //Ref for the AuthServices Class
+  final AuthServices _auth = AuthServices();
 
   final _formKey = GlobalKey<FormState>();
 
@@ -72,10 +74,13 @@ class _SignInState extends State<SignIn> {
                     const SizedBox(
                       height: 20,
                     ),
-                    Center(
-                      child: Image.asset(
-                        "assets/images/google.png",
-                        height: 50,
+                    GestureDetector(
+                      onTap: () {},
+                      child: Center(
+                        child: Image.asset(
+                          "assets/images/google.png",
+                          height: 50,
+                        ),
                       ),
                     ),
                     const SizedBox(
@@ -89,6 +94,7 @@ class _SignInState extends State<SignIn> {
                           style: descriptionStyle,
                         ),
                         GestureDetector(
+                          onTap: () {},
                           child: const Text(
                             "REGISTOR",
                             style: TextStyle(
@@ -98,6 +104,56 @@ class _SignInState extends State<SignIn> {
                           ),
                         ),
                       ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(100),
+                      child: Container(
+                        height: 40,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          color: bgBlack,
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(color: mainYellow, width: 2),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "LOG IN",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    InkWell(
+                      onTap: () {},
+                      borderRadius: BorderRadius.circular(100),
+                      child: Container(
+                        height: 40,
+                        width: 200,
+                        decoration: BoxDecoration(
+                          color: bgBlack,
+                          borderRadius: BorderRadius.circular(100),
+                          border: Border.all(color: mainBlue, width: 2),
+                        ),
+                        child: const Center(
+                          child: Text(
+                            "LOG IN AS GUEST",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                   ],
                 ),
