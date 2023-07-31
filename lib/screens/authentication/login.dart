@@ -26,6 +26,7 @@ class _SignInState extends State<SignIn> {
               Logger().e("Error in sign in Anonymosly");
             } else {
               Logger().i("Sign in Anonymosly");
+              Logger().i(result.uid);
             }
           },
           child: const Text("Sign In Anonymously"),
