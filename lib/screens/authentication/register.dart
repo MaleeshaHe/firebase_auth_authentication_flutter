@@ -7,7 +7,6 @@ import '../../constants/styles.dart';
 
 class Register extends StatefulWidget {
   final Function toggle;
-
   const Register({required this.toggle, super.key});
 
   @override
@@ -21,6 +20,7 @@ class _RegisterState extends State<Register> {
 
   String email = "";
   String password = "";
+  String error = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,6 +51,7 @@ class _RegisterState extends State<Register> {
                   child: Column(
                     children: [
                       TextFormField(
+                        style: const TextStyle(color: Colors.white),
                         decoration: textInputDecoration,
                         validator: (value) => value?.isEmpty == true
                             ? "Enter a valid email"
@@ -65,6 +66,7 @@ class _RegisterState extends State<Register> {
                         height: 20,
                       ),
                       TextFormField(
+                        style: const TextStyle(color: Colors.white),
                         decoration:
                             textInputDecoration.copyWith(hintText: "Password"),
                         validator: (value) =>
@@ -77,6 +79,13 @@ class _RegisterState extends State<Register> {
                       ),
                       const SizedBox(
                         height: 20,
+                      ),
+                      Text(
+                        error,
+                        style: descriptionStyle.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
                       ),
                       const Text(
                         "Login with social accounts",
@@ -106,7 +115,7 @@ class _RegisterState extends State<Register> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              widget.toggle;
+                              widget.toggle();
                             },
                             child: const Text(
                               "LOGIN",
@@ -122,7 +131,16 @@ class _RegisterState extends State<Register> {
                         height: 20,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          dynamic result = await _auth
+                              .registerWithEmailAndPassword(email, password);
+
+                          if (result == null) {
+                            setState(() {
+                              error = "Please enter the valid email";
+                            });
+                          } else {}
+                        },
                         borderRadius: BorderRadius.circular(100),
                         child: Container(
                           height: 40,

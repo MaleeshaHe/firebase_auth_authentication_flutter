@@ -22,6 +22,7 @@ class _SignInState extends State<SignIn> {
 
   String email = "";
   String password = "";
+  String error = "";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,6 +53,7 @@ class _SignInState extends State<SignIn> {
                   child: Column(
                     children: [
                       TextFormField(
+                        style: const TextStyle(color: Colors.white),
                         decoration: textInputDecoration,
                         validator: (value) => value?.isEmpty == true
                             ? "Enter a valid email"
@@ -66,6 +68,7 @@ class _SignInState extends State<SignIn> {
                         height: 20,
                       ),
                       TextFormField(
+                        style: const TextStyle(color: Colors.white),
                         decoration:
                             textInputDecoration.copyWith(hintText: "Password"),
                         validator: (value) =>
@@ -78,6 +81,13 @@ class _SignInState extends State<SignIn> {
                       ),
                       const SizedBox(
                         height: 20,
+                      ),
+                      Text(
+                        error,
+                        style: descriptionStyle.copyWith(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red,
+                        ),
                       ),
                       const Text(
                         "Login with social accounts",
@@ -107,7 +117,7 @@ class _SignInState extends State<SignIn> {
                           ),
                           GestureDetector(
                             onTap: () {
-                              widget.toggle;
+                              widget.toggle();
                             },
                             child: const Text(
                               "REGISTER",
@@ -123,7 +133,16 @@ class _SignInState extends State<SignIn> {
                         height: 20,
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () async {
+                          dynamic result = await _auth
+                              .signInUsingEmailAndPassword(email, password);
+
+                          if (result == null) {
+                            setState(() {
+                              error = "Could not signin with those credentials";
+                            });
+                          } else {}
+                        },
                         borderRadius: BorderRadius.circular(100),
                         child: Container(
                           height: 40,

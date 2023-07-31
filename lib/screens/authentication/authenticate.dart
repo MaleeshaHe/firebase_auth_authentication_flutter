@@ -14,7 +14,7 @@ class _AuthenticateState extends State<Authenticate> {
 
   void switchPages() {
     setState(() {
-      singinPage != singinPage;
+      singinPage = !singinPage;
     });
   }
 
