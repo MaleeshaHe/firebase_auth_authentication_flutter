@@ -1,6 +1,7 @@
-import 'package:firebase_auth_authentication_flutter/services/auth.dart';
+import 'package:firebase_auth_authentication_flutter/constants/colors.dart';
+import 'package:firebase_auth_authentication_flutter/constants/description.dart';
+import 'package:firebase_auth_authentication_flutter/constants/styles.dart';
 import 'package:flutter/material.dart';
-import 'package:logger/logger.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -11,27 +12,41 @@ class SignIn extends StatefulWidget {
 
 class _SignInState extends State<SignIn> {
   //Ref for the AuthServices Class
-  final AuthServices _auth = AuthServices();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: bgBlack,
       appBar: AppBar(
+        backgroundColor: bgBlack,
         title: const Text("SIGN IN"),
       ),
-      body: Center(
-        child: ElevatedButton(
-          onPressed: () async {
-            dynamic result = await _auth.signInAnonymously();
-            if (result == null) {
-              Logger().e("Error in sign in Anonymosly");
-            } else {
-              Logger().i("Sign in Anonymosly");
-              Logger().i(result.uid);
-            }
-          },
-          child: const Text("Sign In Anonymously"),
+      body: Padding(
+        padding: EdgeInsets.only(left: 15.0, right: 10),
+        child: Column(
+          children: [
+            Text(
+              description,
+              style: descriptionStyle,
+            ),
+            Image.asset("assets/images/man.png"),
+          ],
         ),
       ),
     );
   }
 }
+
+
+
+// ElevatedButton(
+//           onPressed: () async {
+//             dynamic result = await _auth.signInAnonymously();
+//             if (result == null) {
+//               Logger().e("Error in sign in Anonymosly");
+//             } else {
+//               Logger().i("Sign in Anonymosly");
+//               Logger().i(result.uid);
+//             }
+//           },
+//           child: const Text("Sign In Anonymously"),
+//         ),

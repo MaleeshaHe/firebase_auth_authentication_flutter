@@ -1,7 +1,10 @@
 import 'package:firebase_auth_authentication_flutter/firebase_options.dart';
+import 'package:firebase_auth_authentication_flutter/models/user_model.dart';
 import 'package:firebase_auth_authentication_flutter/screens/wrapper.dart';
+import 'package:firebase_auth_authentication_flutter/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,9 +19,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Wrapper(),
+    return StreamProvider<UserModel?>.value(
+      initialData: UserModel(uid: "uid"),
+      value: AuthServices().user,
+      child: const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: Wrapper(),
+      ),
     );
   }
 }
