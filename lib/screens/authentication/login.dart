@@ -96,7 +96,7 @@ class _SignInState extends State<SignIn> {
                         GestureDetector(
                           onTap: () {},
                           child: const Text(
-                            "REGISTOR",
+                            "REGISTER",
                             style: TextStyle(
                               color: mainBlue,
                               fontWeight: FontWeight.w600,

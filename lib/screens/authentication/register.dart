@@ -25,7 +25,7 @@ class _RegisterState extends State<Register> {
       backgroundColor: bgBlack,
       appBar: AppBar(
         backgroundColor: bgBlack,
-        title: const Text("SIGN IN"),
+        title: const Text("REGISTER"),
       ),
       body: SingleChildScrollView(
         child: Padding(
@@ -90,13 +90,13 @@ class _RegisterState extends State<Register> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
-                          "Do not have an account ? ",
+                          "Already have an account ? ",
                           style: descriptionStyle,
                         ),
                         GestureDetector(
                           onTap: () {},
                           child: const Text(
-                            "REGISTOR",
+                            "LOGIN",
                             style: TextStyle(
                               color: mainBlue,
                               fontWeight: FontWeight.w600,
@@ -121,32 +121,7 @@ class _RegisterState extends State<Register> {
                         ),
                         child: const Center(
                           child: Text(
-                            "LOG IN",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(
-                      height: 20,
-                    ),
-                    InkWell(
-                      onTap: () {},
-                      borderRadius: BorderRadius.circular(100),
-                      child: Container(
-                        height: 40,
-                        width: 200,
-                        decoration: BoxDecoration(
-                          color: bgBlack,
-                          borderRadius: BorderRadius.circular(100),
-                          border: Border.all(color: mainBlue, width: 2),
-                        ),
-                        child: const Center(
-                          child: Text(
-                            "LOG IN AS GUEST",
+                            "REGISTER",
                             style: TextStyle(
                               color: Colors.white,
                               fontWeight: FontWeight.w500,
