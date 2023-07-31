@@ -6,7 +6,9 @@ import '../../constants/colors.dart';
 import '../../constants/styles.dart';
 
 class Register extends StatefulWidget {
-  const Register({super.key});
+  final Function toggle;
+
+  const Register({required this.toggle, super.key});
 
   @override
   State<Register> createState() => _RegisterState();
@@ -103,7 +105,9 @@ class _RegisterState extends State<Register> {
                             style: descriptionStyle,
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              widget.toggle;
+                            },
                             child: const Text(
                               "LOGIN",
                               style: TextStyle(

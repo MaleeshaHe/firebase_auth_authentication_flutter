@@ -6,7 +6,9 @@ import 'package:flutter/material.dart';
 import 'package:logger/logger.dart';
 
 class SignIn extends StatefulWidget {
-  const SignIn({super.key});
+  final Function toggle;
+
+  SignIn({required this.toggle, super.key});
 
   @override
   State<SignIn> createState() => _SignInState();
@@ -104,7 +106,9 @@ class _SignInState extends State<SignIn> {
                             style: descriptionStyle,
                           ),
                           GestureDetector(
-                            onTap: () {},
+                            onTap: () {
+                              widget.toggle;
+                            },
                             child: const Text(
                               "REGISTER",
                               style: TextStyle(
