@@ -40,129 +40,131 @@ class _HomeState extends State<Home> {
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(20.0),
-            child: Column(
-              children: [
-                const Text(
-                  "Home",
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.w800),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
-                const Text(
-                  description,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: textLight,
-                    fontSize: 10,
-                    fontWeight: FontWeight.w300,
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  const Text(
+                    "Home",
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w800),
                   ),
-                ),
-                Center(
-                  child: Image.asset(
-                    "assets/images/man.png",
-                    height: 150,
+                  const SizedBox(
+                    height: 30,
                   ),
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AddMachinePage(),
-                      ),
-                    );
-                  },
-                  child: const Text("Add Machine"),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ViewMachinePage(),
-                      ),
-                    );
-                  },
-                  child: const Text("View Machine"),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const AddErrorPage(),
-                      ),
-                    );
-                  },
-                  child: const Text("Add Error"),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ViewErrorPage(),
-                      ),
-                    );
-                  },
-                  child: const Text("View Error"),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CheckError(),
-                      ),
-                    );
-                  },
-                  child: const Text("Checking"),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const ChekingViewPage(),
-                      ),
-                    );
-                  },
-                  child: const Text("Checking"),
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const CheckingAddPage(),
-                      ),
-                    );
-                  },
-                  child: const Text("Create Checking"),
-                ),
-              ],
+                  const Text(
+                    description,
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                      color: textLight,
+                      fontSize: 10,
+                      fontWeight: FontWeight.w300,
+                    ),
+                  ),
+                  Center(
+                    child: Image.asset(
+                      "assets/images/man.png",
+                      height: 150,
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AddMachinePage(),
+                        ),
+                      );
+                    },
+                    child: const Text("Add Machine"),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ViewMachinePage(),
+                        ),
+                      );
+                    },
+                    child: const Text("View Machine"),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AddErrorPage(),
+                        ),
+                      );
+                    },
+                    child: const Text("Add Error"),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ViewErrorPage(),
+                        ),
+                      );
+                    },
+                    child: const Text("View Error"),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CheckError(),
+                        ),
+                      );
+                    },
+                    child: const Text("Checking"),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ChekingViewPage(),
+                        ),
+                      );
+                    },
+                    child: const Text("Checking"),
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const CheckingAddPage(),
+                        ),
+                      );
+                    },
+                    child: const Text("Create Checking"),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
