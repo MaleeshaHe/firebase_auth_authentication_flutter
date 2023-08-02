@@ -8,7 +8,7 @@ import 'package:logger/logger.dart';
 class SignIn extends StatefulWidget {
   final Function toggle;
 
-  SignIn({required this.toggle, super.key});
+  const SignIn({required this.toggle, super.key});
 
   @override
   State<SignIn> createState() => _SignInState();

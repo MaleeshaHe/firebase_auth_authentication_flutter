@@ -1,5 +1,8 @@
 import 'package:firebase_auth_authentication_flutter/firebase_options.dart';
 import 'package:firebase_auth_authentication_flutter/models/user_model.dart';
+import 'package:firebase_auth_authentication_flutter/providers/checking_provider.dart';
+import 'package:firebase_auth_authentication_flutter/providers/error_add_provider.dart';
+import 'package:firebase_auth_authentication_flutter/providers/machine_add_provider.dart';
 import 'package:firebase_auth_authentication_flutter/screens/wrapper.dart';
 import 'package:firebase_auth_authentication_flutter/services/auth.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -11,7 +14,22 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(
+          create: (context) => MachineAddProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => ErrorAddProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CheckingProvider(),
+        ),
+      ],
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {
