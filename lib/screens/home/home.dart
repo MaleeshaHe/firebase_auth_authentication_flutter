@@ -1,5 +1,6 @@
 import 'package:firebase_auth_authentication_flutter/constants/colors.dart';
 import 'package:firebase_auth_authentication_flutter/constants/description.dart';
+import 'package:firebase_auth_authentication_flutter/screens/home/checking/checking_add.dart';
 import 'package:firebase_auth_authentication_flutter/screens/home/errors/add_error.dart';
 import 'package:firebase_auth_authentication_flutter/screens/home/errors/error_check.dart';
 import 'package:firebase_auth_authentication_flutter/screens/home/errors/view_error.dart';
@@ -146,6 +147,20 @@ class _HomeState extends State<Home> {
                     );
                   },
                   child: const Text("Checking"),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CheckingAddPage(),
+                      ),
+                    );
+                  },
+                  child: const Text("Create Checking"),
                 ),
               ],
             ),

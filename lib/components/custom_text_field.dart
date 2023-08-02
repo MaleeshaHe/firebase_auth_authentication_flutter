@@ -26,7 +26,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25, right: 25, bottom: 20),
+      padding: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
       child: SizedBox(
         height: 52,
         child: TextField(
